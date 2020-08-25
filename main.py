@@ -107,7 +107,8 @@ with mss.mss() as sct:
             to_catch = [
                 # "machop_day",
                 # "machop_night",
-
+                "bulba_night",
+                "bulba_day",
                 "charmander",
                 "bagon_day",
                 "bagon_night",
