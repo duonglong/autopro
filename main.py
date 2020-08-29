@@ -107,24 +107,38 @@ with mss.mss() as sct:
             to_catch = [
                 # "machop_day",
                 # "machop_night",
-                "bulba_night",
-                "bulba_day",
-                "charmander",
-                "bagon_day",
-                "bagon_night",
-                "mediate",
-                "scyther",
-                "scyther_day",
-                "swablu_day",
+                # 'torchic_day',
+                # 'torchic_night',
+                # "larvitar",
+                # "larvitar_day",
+                # "bulba_night",
+                # "bulba_day",
+                # "charmander",
+                "charmander_cave",
+                # "bagon_day",
+                # "bagon_night",
+                # "mediate",
+                # "scyther",
+                # "scyther_day",
+                # "swablu_day",
+                "geodude_alolan"
             ]
             found_poke = False
             for poke in to_catch:
                 found_poke = detect_object(poke)
                 if found_poke:
                     print("Found %s !!!" % poke)
-                    found_chansey_battle = detect_object("chansey_battle_day")
-                    if not found_chansey_battle:
-                        found_chansey_battle = detect_object("chansey_battle_night")
+                    chansey_location = [
+                        'chansey_battle_day',
+                        'chansey_battle_night',
+                        'chansey_inhouse',
+                        'chansey_cave'
+                    ]
+                    found_chansey_battle = False
+                    for chansey in chansey_location:
+                        found_chansey_battle = detect_object(chansey)
+                        if found_chansey_battle:
+                            break
                     if not found_chansey_battle:
                         pyautogui.press(["2"])
                         pyautogui.press(["2"])
@@ -145,9 +159,21 @@ with mss.mss() as sct:
                                 pyautogui.moveTo(found_pokeball[0], found_pokeball[1], 0)
                                 pyautogui.click()
                     break
-            found_sync = detect_object("kadabra_r10")
-            if not found_sync:
-                found_sync = detect_object("kadabra_r210_2")
+            sync_pokes = [
+
+                'sync_alakazam',
+                'sync_alakazam_day',
+                'kadabra_r10',
+                'kadabra_r210_2',
+                'xatu',
+                'xatu_cave',
+                'mew'
+            ]
+            found_sync = False
+            for poke in sync_pokes:
+                found_sync = detect_object(poke)
+                if found_sync:
+                    break
             found_change_sync = detect_object("change_sync")
             if found_change_sync:
                 pyautogui.moveTo(found_change_sync[0] - 10, found_change_sync[1] -10, 0)
@@ -155,10 +181,17 @@ with mss.mss() as sct:
             if found_sync and not found_poke:
                 pyautogui.press(["4"])
 
-            found_sync_icon = detect_object("kadabra_r10_icon")
-
-            if not found_sync_icon:
-                found_sync_icon = detect_object("mew_icon")
+            sync_poke_icons = [
+                'alakazam_icon',
+                'kadabra_r10_icon',
+                'mew_icon',
+                'xatu_icon'
+            ]
+            found_sync_icon = False
+            for icon in sync_pokes:
+                found_sync_icon = detect_object(icon)
+                if found_sync_icon:
+                    break
             if not found_poke and not found_sync and found_sync_icon:
                 pass
 
