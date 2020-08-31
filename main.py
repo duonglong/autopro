@@ -114,14 +114,14 @@ with mss.mss() as sct:
                 # "bulba_night",
                 # "bulba_day",
                 # "charmander",
-                "charmander_cave",
-                # "bagon_day",
-                # "bagon_night",
+                # "charmander_cave",
+                "bagon_day",
+                "bagon_night",
                 # "mediate",
-                # "scyther",
-                # "scyther_day",
-                # "swablu_day",
-                "geodude_alolan"
+                "scyther",
+                "scyther_day",
+                "swablu_day",
+                # "geodude_alolan"
             ]
             found_poke = False
             for poke in to_catch:
@@ -131,8 +131,8 @@ with mss.mss() as sct:
                     chansey_location = [
                         'chansey_battle_day',
                         'chansey_battle_night',
-                        'chansey_inhouse',
-                        'chansey_cave'
+                        # 'chansey_inhouse',
+                        # 'chansey_cave'
                     ]
                     found_chansey_battle = False
                     for chansey in chansey_location:
