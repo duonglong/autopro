@@ -5,7 +5,7 @@ import mss
 import numpy as np
 import pyautogui
 import subprocess
-
+from datetime import datetime
 pyautogui.FAILSAFE = False
 move_process = False
 onmount = False
@@ -124,9 +124,11 @@ with mss.mss() as sct:
                 # "geodude_alolan"
             ]
             found_poke = False
+
             for poke in to_catch:
                 found_poke = detect_object(poke)
                 if found_poke:
+                    print(" %s" % datetime.now())
                     print("Found %s !!!" % poke)
                     chansey_location = [
                         'chansey_battle_day',
