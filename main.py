@@ -60,8 +60,8 @@ with mss.mss() as sct:
             move_process.terminate()
             login = False
             onmount = False
-            pyautogui.moveTo(found_login[0] - 30, found_login[1] - 10, 0)
-            pyautogui.click()
+            #pyautogui.moveTo(found_login[0] - 30, found_login[1] - 10, 0)
+            #pyautogui.click()
         elif not found_loading:
             login = True
             found_guard = detect_object("guard")
@@ -72,38 +72,41 @@ with mss.mss() as sct:
                     start_to_move()
         # # Display the picture
         # # cv2.imshow("OpenCV/Numpy normal", img_rgb)
-        if not is_hunting_place:
-            if found_guard:
-                pyautogui.press(["left"])
-                time.sleep(0.3)
-                pyautogui.press(["right"])
-                character_move("s", 5)
-                time.sleep(3)
-            found_mail_box = detect_object("mailbox")
-            if found_mail_box:
-                print("Moving")
-                character_move("right", 5)
-                character_move("up", 12)
-                character_move("right", 3)
-            found_npc = detect_object("npc")
-            if found_npc:
-                is_hunting_place = True
-                character_move("right", 3)
-                character_move("up", 2)
+        # if not is_hunting_place:
+        #     if found_guard:
+        #         pyautogui.press(["left"])
+        #         time.sleep(0.3)
+        #         pyautogui.press(["right"])
+        #         character_move("s", 5)
+        #         time.sleep(3)
+        #     found_mail_box = detect_object("mailbox")
+        #     if found_mail_box:
+        #         print("Moving")
+        #         character_move("right", 5)
+        #         character_move("up", 12)
+        #         character_move("right", 3)
+        #     found_npc = detect_object("npc")
+        #     if found_npc:
+        #         is_hunting_place = True
+        #         character_move("right", 3)
+        #         character_move("up", 2)
 
             # found_at_hunting_place = detect_object("at_hunting_place")
             # if found_at_hunting_place:
             #     is_hunting_place = True
-
+        found_okbutton = detect_object("okbutton")
+        if found_okbutton:
+            pyautogui.moveTo(found_okbutton[0] - 40, found_okbutton[1] - 25, 0)
+            pyautogui.click()
         if login and is_hunting_place:
-            if not onmount:
-                found_mount = detect_object("mount_icon")
-                print("going to mount")
-                if found_mount:
-                    pyautogui.moveTo(found_mount[0] - 10, found_mount[1] - 10, 0)
-                    pyautogui.click()
-                    print("click on mount")
-                    onmount = True
+            # if not onmount:
+            #     found_mount = detect_object("mount_icon")
+            #     print("going to mount")
+            #     if found_mount:
+            #         pyautogui.moveTo(found_mount[0] - 10, found_mount[1] - 10, 0)
+            #         pyautogui.click()
+            #         print("click on mount")
+            #         onmount = True
             to_catch = [
                 # "machop_day",
                 # "machop_night",
@@ -115,13 +118,33 @@ with mss.mss() as sct:
                 # "bulba_day",
                 # "charmander",
                 # "charmander_cave",
-                "bagon_day",
-                "bagon_night",
+                # "bagon_day",
+                # "bagon_night",
                 # "mediate",
-                "scyther",
-                "scyther_day",
+                # "scyther",
+                # "scyther_day",
                 # "swablu_day",
                 # "geodude_alolan"
+                # "axew",
+                #  "gligar",
+                # "poliwag",
+                #"meditite",
+                #"swablu",
+                #"scyther",
+                #"machop"
+                # "aipom"
+                # "gible2",
+                # "larvitar2",
+                #"grimer",
+                "charmander2",
+                #"mimikyu",
+                #"ralts",
+                #"lotad",
+                #"mudkip",
+                #"froakie",
+                #"gastly",
+                #"quasire",
+                #"timburr",
             ]
             found_poke = False
 
@@ -131,10 +154,15 @@ with mss.mss() as sct:
                     print(" %s" % datetime.now())
                     print("Found %s !!!" % poke)
                     chansey_location = [
-                        'chansey_battle_day',
-                        'chansey_battle_night',
+                        #"gyarados_battle_cave",
+                        #"gyarados_battle_2",
+                        "gyarados_battle_day",
+                        #"gyarados_battle_night",
+                        #"gyarados_battle_water",
+                        # 'chansey_battle_day',
+                        # 'chansey_battle_night',
                         # 'chansey_inhouse',
-                        # 'chansey_cave'
+                        # 'chansey_cave'                        
                     ]
                     found_chansey_battle = False
                     for chansey in chansey_location:
@@ -165,11 +193,12 @@ with mss.mss() as sct:
 
                 # 'sync_alakazam',
                 # 'sync_alakazam_day',
-                'kadabra_r10',
-                'kadabra_r210_2',
+                # 'kadabra_r10',
+                # 'kadabra_r210_2',
                 # 'xatu',
                 # 'xatu_cave',
                 # 'mew'
+                "natu"
             ]
             found_sync = False
             for poke in sync_pokes:
@@ -184,8 +213,9 @@ with mss.mss() as sct:
                 pyautogui.press(["4"])
 
             sync_poke_icons = [
+                "natu_icon"
                 # 'alakazam_icon',
-                'kadabra_r10_icon',
+                # 'kadabra_r10_icon',
                 # 'mew_icon',
                 # 'xatu_icon'
             ]
