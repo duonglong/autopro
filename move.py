@@ -8,8 +8,8 @@ def move_around():
         time.sleep(0.5)
         pyautogui.keyDown("left")
         time.sleep(0.5)
-        pyautogui.keyUp("right")
         pyautogui.keyUp("left")
+        pyautogui.keyUp("right")        
         if cv2.waitKey(25) & 0xFF == ord("q"):
             break
 

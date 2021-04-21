@@ -96,8 +96,12 @@ with mss.mss() as sct:
             #     is_hunting_place = True
         found_okbutton = detect_object("okbutton")
         if found_okbutton:
-            pyautogui.moveTo(found_okbutton[0] - 40, found_okbutton[1] - 25, 0)
-            pyautogui.click()
+           pyautogui.moveTo(found_okbutton[0] - 40, found_okbutton[1] - 25, 0)
+           pyautogui.click()    
+        found_okbutton = detect_object("yes_btn")
+        if found_okbutton:
+           pyautogui.moveTo(found_okbutton[0] - 40, found_okbutton[1] - 25, 0)
+           pyautogui.click()
         if login and is_hunting_place:
             # if not onmount:
             #     found_mount = detect_object("mount_icon")
@@ -118,25 +122,50 @@ with mss.mss() as sct:
                 # "bulba_day",
                 # "charmander",
                 # "charmander_cave",
-                # "bagon_day",
-                # "bagon_night",
-                # "mediate",
-                # "scyther",
+                #"bagon_day",
+                #"bagon_night",
+                #"bagon",
+                #"mediate",
+                #"scyther",
                 # "scyther_day",
                 # "swablu_day",
                 # "geodude_alolan"
-                # "axew",
-                #  "gligar",
+                #"axew",
+                #"riolu",
+                #"snorlax",
+                #"gligar",
                 # "poliwag",
                 #"meditite",
                 #"swablu",
                 #"scyther",
                 #"machop"
                 # "aipom"
-                # "gible2",
+                #"gible2",
+                #"corphish",
+                #"gible",
+                #"sneasel",
                 # "larvitar2",
                 #"grimer",
                 "charmander2",
+                #"magmar",
+                #"vulpix",
+                #"marowak",
+                #"honedge",
+                #"bulbasaur",
+                #"chansey",
+                #"tentacool",
+                #"alomomola",
+                #"staryu",
+                #"nidoran_f",
+                #"ninetails",
+                #"dratini",
+                #"clefairy",
+                #"wooper",
+                #"quagsire",
+                #"unaware",
+                #"snover",
+                #"magikarp",
+                #"zubat",
                 #"mimikyu",
                 #"ralts",
                 #"lotad",
@@ -156,9 +185,17 @@ with mss.mss() as sct:
                     chansey_location = [
                         #"gyarados_battle_cave",
                         #"gyarados_battle_2",
-                        "gyarados_battle_day",
+                        #"gyarados_battle_day",
                         #"gyarados_battle_night",
                         #"gyarados_battle_water",
+                        # "garchomp_battle",
+                        #"togekiss_battle",
+                        #"toge_battle_2",
+                        #"togekiss_battle_3",
+                        #"togekiss_battle_4",
+                        #"togekiss_cave",
+                        "90skid",
+                        #"glisscor_battle",
                         # 'chansey_battle_day',
                         # 'chansey_battle_night',
                         # 'chansey_inhouse',
@@ -168,7 +205,7 @@ with mss.mss() as sct:
                     for chansey in chansey_location:
                         found_chansey_battle = detect_object(chansey)
                         if found_chansey_battle:
-                            break
+                            break                    
                     if not found_chansey_battle:
                         pyautogui.press(["2"])
                         pyautogui.press(["2"])
@@ -208,8 +245,8 @@ with mss.mss() as sct:
             found_change_sync = detect_object("change_sync")
             if found_change_sync:
                 pyautogui.moveTo(found_change_sync[0] - 10, found_change_sync[1] -10, 0)
-                pyautogui.click()
-            if found_sync and not found_poke:
+                pyautogui.click()            
+            if found_sync and not found_poke:                
                 pyautogui.press(["4"])
 
             sync_poke_icons = [
