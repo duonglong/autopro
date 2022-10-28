@@ -14,7 +14,7 @@ is_hunting_place = True
 
 def detect_object(pokename):
     img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)
-    template = cv2.imread("%s.png" % pokename, 0)
+    template = cv2.imread("images/%s.png" % pokename, 0)
     w, h = template.shape[::-1]
 
     res = cv2.matchTemplate(img_gray, template, cv2.TM_CCOEFF_NORMED)
@@ -40,8 +40,8 @@ def character_move(command, steps):
 def start_to_move():
     global move_process
     if not move_process or move_process.poll() == 1:
-        move_process = subprocess.Popen(['C:\\Users\\Duong Long\\Desktop\\autopro\\venv\\Scripts\\python.exe',
-                          "C:\\Users\\Duong Long\\Desktop\\autopro\\move.py"],
+        move_process = subprocess.Popen(['C:\\python36\\python.exe',
+                          "C:\\Users\\duong\\Desktop\\autopro\\move.py"],
                          stdout=subprocess.PIPE,
                          stderr=subprocess.PIPE)
 start_to_move()
@@ -112,6 +112,7 @@ with mss.mss() as sct:
             #         print("click on mount")
             #         onmount = True
             to_catch = [
+                #"grimer",
                 # "machop_day",
                 # "machop_night",
                 # 'torchic_day',
